@@ -46,10 +46,10 @@ flowchart LR
 | 方法 | 一言で | 使いどころ |
 |---|---|---|
 | AWS マネジメントコンソール | Web ブラウザで操作する画面 | 初めての操作、状態の確認 |
-| AWS CLI | コマンドラインから操作するツール | 繰り返しの作業、スクリプトによる自動化 |
+| AWS Command Line Interface（AWS CLI） | コマンドラインから操作するツール | 繰り返しの作業、スクリプトによる自動化 |
 | AWS SDK | プログラム（Python、Java、JavaScript など）から AWS の API を呼ぶためのライブラリ | アプリケーションからの操作 |
 | AWS CloudShell | ブラウザから使えるシェル。AWS CLI が導入済みで、追加料金なし | 手元に環境を用意せずに CLI を使う |
-| Infrastructure as Code（IaC） | テンプレートやコードでインフラを定義する | AWS CloudFormation や AWS CDK による、再現性のある構築 |
+| Infrastructure as Code（IaC） | テンプレートやコードでインフラを定義する | AWS CloudFormation や AWS Cloud Development Kit（AWS CDK）による、再現性のある構築 |
 
 コンソール、CLI、SDK のどれを使っても、最終的には同じ AWS の API を呼び出しています。そのため、どの方法で操作しても AWS CloudTrail に記録されます。オンプレミスとの接続手段（インターネット、AWS Site-to-Site VPN、AWS Direct Connect）は 5 節で扱います。
 
@@ -57,14 +57,14 @@ flowchart LR
 
 | サービス | 一言で | ユースケース | CLF のキーワード |
 |---|---|---|---|
-| Amazon EC2 | 仮想サーバー（IaaS） | OS やミドルウェアを自由に選ぶ Web・業務サーバー | インスタンスタイプ、AMI、OS の管理は利用者 |
+| Amazon Elastic Compute Cloud（Amazon EC2） | 仮想サーバー（IaaS） | OS やミドルウェアを自由に選ぶ Web・業務サーバー | インスタンスタイプ、AMI、OS の管理は利用者 |
 | Amazon EC2 Auto Scaling | EC2 インスタンスの台数を自動で増減 | 需要の変動への対応、故障したインスタンスの自動置き換え | 弾力性、スケールアウト / スケールイン |
 | Elastic Load Balancing（ELB） | 複数のターゲットに通信を分散 | 複数の AZ の EC2 インスタンスへの振り分け | ALB（HTTP/HTTPS）、NLB（TCP/UDP・高性能）、GWLB（仮想アプライアンス） |
 | AWS Lambda | イベントに応じてコードを実行（FaaS） | ファイルのアップロード時の処理、API のバックエンド | サーバーレス、実行時間に応じた課金、最大実行時間 15 分 |
-| Amazon ECS | AWS 独自のコンテナオーケストレーション | コンテナ化したアプリケーションの実行 | タスク、サービス |
-| Amazon EKS | マネージドな Kubernetes | Kubernetes の標準的なツールで運用したい場合 | Kubernetes |
+| Amazon Elastic Container Service（Amazon ECS） | AWS 独自のコンテナオーケストレーション | コンテナ化したアプリケーションの実行 | タスク、サービス |
+| Amazon Elastic Kubernetes Service（Amazon EKS） | マネージドな Kubernetes | Kubernetes の標準的なツールで運用したい場合 | Kubernetes |
 | AWS Fargate | コンテナ用のサーバーレスな実行環境 | サーバー（EC2）を管理せずにコンテナを実行 | ECS や EKS と組み合わせて使う |
-| Amazon ECR | コンテナイメージのレジストリ | イメージの保存、脆弱性スキャン | Docker イメージ |
+| Amazon Elastic Container Registry（Amazon ECR） | コンテナイメージのレジストリ | イメージの保存、脆弱性スキャン | Docker イメージ |
 | Amazon ECS Express Mode | Fargate 上のサービス、ALB、自動スケーリング、HTTPS の URL を 1 ステップで作成 | コンテナ化した Web アプリを手早く公開 | 2025年11月提供開始。App Runner の推奨後継 |
 | AWS Elastic Beanstalk | コードをアップロードするだけで実行環境を自動構築（PaaS） | Java、.NET、PHP、Node.js、Python、Ruby、Go、Docker のアプリのデプロイ | インフラ管理の負担を減らしつつ、基盤の設定も変更できる |
 | Amazon Lightsail | 月額料金のシンプルな仮想サーバー | 小規模な Web サイト、WordPress、開発環境 | シンプル、料金を予測しやすい |
@@ -82,10 +82,10 @@ flowchart LR
 
 | サービス | 一言で | ユースケース | CLF のキーワード |
 |---|---|---|---|
-| Amazon S3 | 容量無制限のオブジェクトストレージ | 静的 Web サイト、バックアップ、データレイク | バケット、オブジェクト、99.999999999%（イレブンナイン）の耐久性、ストレージクラス、ライフサイクル |
-| Amazon EBS | EC2 インスタンス用のブロックストレージ | OS のディスク、データベースのデータ | AZ 単位、スナップショット |
+| Amazon Simple Storage Service（Amazon S3） | 容量無制限のオブジェクトストレージ | 静的 Web サイト、バックアップ、データレイク | バケット、オブジェクト、99.999999999%（イレブンナイン）の耐久性、ストレージクラス、ライフサイクル |
+| Amazon Elastic Block Store（Amazon EBS） | EC2 インスタンス用のブロックストレージ | OS のディスク、データベースのデータ | AZ 単位、スナップショット |
 | インスタンスストア | EC2 のホストに物理的に接続された一時的なブロックストレージ | キャッシュ、一時データ | インスタンスを停止・終了するとデータが消える |
-| Amazon EFS | 複数の Linux サーバーから同時に使える共有ファイルストレージ | Web コンテンツの共有、コンテナの永続ストレージ | NFS、容量が自動で伸縮、マルチ AZ |
+| Amazon Elastic File System（Amazon EFS） | 複数の Linux サーバーから同時に使える共有ファイルストレージ | Web コンテンツの共有、コンテナの永続ストレージ | NFS、容量が自動で伸縮、マルチ AZ |
 | Amazon FSx | 高機能なファイルシステムのフルマネージド版 | Windows のファイル共有、HPC、NetApp ONTAP からの移行 | FSx for Windows File Server（SMB、Active Directory 連携）、FSx for Lustre（HPC）、FSx for NetApp ONTAP、FSx for OpenZFS |
 | AWS Storage Gateway | オンプレミスとクラウドのストレージをつなぐハイブリッドストレージ | オンプレミスから S3 をファイル共有として使う、テープバックアップの置き換え | S3 File Gateway、Volume Gateway、Tape Gateway（FSx File Gateway は新規利用不可） |
 | AWS Backup | 複数のサービスのバックアップを一元管理 | EC2、EBS、RDS、DynamoDB、EFS などのバックアップ方針を統一 | バックアッププラン、クロスリージョンコピー |
@@ -114,14 +114,14 @@ S3 では、アクセス頻度に応じて **ストレージクラス** を選�
 
 | サービス | 一言で | ユースケース | CLF のキーワード |
 |---|---|---|---|
-| Amazon RDS | マネージドなリレーショナルデータベース | 業務システムや Web アプリの DB | MySQL、PostgreSQL、MariaDB、Oracle、SQL Server、Db2。マルチ AZ、リードレプリカ、自動バックアップ |
+| Amazon Relational Database Service（Amazon RDS） | マネージドなリレーショナルデータベース | 業務システムや Web アプリの DB | MySQL、PostgreSQL、MariaDB、Oracle、SQL Server、Db2。マルチ AZ、リードレプリカ、自動バックアップ |
 | Amazon Aurora | クラウド向けに設計された高性能なリレーショナル DB | 高いスループットと可用性が必要な DB | MySQL / PostgreSQL 互換、3 つの AZ に 6 つのコピー、Aurora Serverless |
 | Amazon Aurora DSQL | サーバーレスの分散 SQL データベース | 複数のリージョンでのアクティブ / アクティブ構成 | PostgreSQL 互換、2025年5月 GA |
 | Amazon DynamoDB | フルマネージドでサーバーレスな NoSQL データベース | 大規模な Web・モバイル・ゲーム、セッション管理 | キーバリュー、1 桁ミリ秒の応答、自動スケーリング、グローバルテーブル |
 | Amazon ElastiCache | インメモリのキャッシュ | DB の読み取り負荷の軽減、セッションの保存 | Valkey / Redis OSS / Memcached、マイクロ秒単位の応答 |
 | Amazon MemoryDB | 耐久性のあるインメモリデータベース | 超高速で、かつデータを失えない用途 | Valkey / Redis OSS 互換 |
 | Amazon DocumentDB（MongoDB 互換） | ドキュメントデータベース | JSON ドキュメントを扱うアプリ、MongoDB からの移行 | MongoDB 互換 |
-| Amazon Neptune | グラフデータベース | SNS のつながり、レコメンデーション、不正検知 | ノードとリレーションシップ |
+| Amazon Neptune | グラフデータベース | ソーシャルネットワークのつながり、レコメンデーション、不正検知 | ノードとリレーションシップ |
 | Amazon Keyspaces（for Apache Cassandra） | Cassandra 互換のサーバーレス DB | Cassandra からの移行 | CQL |
 | Amazon Timestream | 時系列データベース | IoT のセンサー値、運用メトリクス | Timestream for InfluxDB（Timestream for LiveAnalytics は 2025年6月から新規受付終了） |
 
@@ -135,7 +135,7 @@ S3 では、アクセス頻度に応じて **ストレージクラス** を選�
 
 | サービス | 一言で | ユースケース | CLF のキーワード |
 |---|---|---|---|
-| Amazon VPC | AWS 上の、論理的に分離されたプライベートネットワーク | サブネットの設計、インターネットからの分離 | サブネット、ルートテーブル、インターネットゲートウェイ、NAT ゲートウェイ、セキュリティグループ、ネットワーク ACL |
+| Amazon Virtual Private Cloud（Amazon VPC） | AWS 上の、論理的に分離されたプライベートネットワーク | サブネットの設計、インターネットからの分離 | サブネット、ルートテーブル、インターネットゲートウェイ、NAT ゲートウェイ、セキュリティグループ、ネットワーク ACL |
 | Amazon Route 53 | DNS とドメイン登録 | ドメイン名の名前解決、ヘルスチェックによるフェイルオーバー | ルーティングポリシー（シンプル、加重、レイテンシー、フェイルオーバー、位置情報など） |
 | Amazon CloudFront | CDN（コンテンツ配信ネットワーク） | 静的・動的コンテンツの高速配信 | エッジロケーション、キャッシュ |
 | AWS Global Accelerator | AWS のグローバルネットワーク経由で、アプリへの通信を高速化 | 世界中からの TCP / UDP 通信、固定 IP アドレスが必要な場合 | エニーキャストの固定 IP アドレス、リージョン間の迅速なフェイルオーバー |
@@ -158,11 +158,11 @@ S3 では、アクセス頻度に応じて **ストレージクラス** を選�
 
 | サービス | 一言で | CLF のキーワード |
 |---|---|---|
-| AWS IAM | AWS へのアクセスを制御（ユーザー、グループ、ロール、ポリシー） | 最小権限、MFA、追加料金なし |
+| AWS Identity and Access Management（IAM） | AWS へのアクセスを制御（ユーザー、グループ、ロール、ポリシー） | 最小権限、MFA、追加料金なし |
 | AWS IAM Identity Center（旧 AWS SSO） | 複数のアカウントや業務アプリへのシングルサインオン | 社員のアクセスを一元管理、許可セット |
 | Amazon Cognito | 自社の Web・モバイルアプリの利用者向けの認証 | サインアップ / サインイン、ソーシャルログイン |
 | AWS Directory Service | マネージドな Microsoft Active Directory | AWS Managed Microsoft AD、AD Connector |
-| AWS KMS | 暗号鍵の作成と管理 | S3、EBS、RDS などの暗号化、キーポリシー |
+| AWS Key Management Service（AWS KMS） | 暗号鍵の作成と管理 | S3、EBS、RDS などの暗号化、キーポリシー |
 | AWS CloudHSM | 専用のハードウェアセキュリティモジュール（HSM） | シングルテナント、鍵を完全に自己管理 |
 | AWS Secrets Manager | DB のパスワードなど、シークレットの保管と自動ローテーション | 認証情報のハードコードをなくす |
 | AWS Certificate Manager（ACM） | SSL/TLS 証明書の発行と管理 | ELB や CloudFront の HTTPS 化、自動更新 |
@@ -208,8 +208,8 @@ S3 では、アクセス頻度に応じて **ストレージクラス** を選�
 
 | サービス | 一言で | ユースケース | CLF のキーワード |
 |---|---|---|---|
-| Amazon SQS | フルマネージドなメッセージキュー | コンポーネント間の疎結合、処理の平準化 | 標準キュー / FIFO キュー、最大メッセージサイズ 1 MiB |
-| Amazon SNS | Pub/Sub 型の通知サービス | メール・SMS・プッシュ通知、SQS や Lambda への一斉配信（ファンアウト） | トピック、サブスクリプション |
+| Amazon Simple Queue Service（Amazon SQS） | フルマネージドなメッセージキュー | コンポーネント間の疎結合、処理の平準化 | 標準キュー / FIFO キュー、最大メッセージサイズ 1 MiB |
+| Amazon Simple Notification Service（Amazon SNS） | Pub/Sub 型の通知サービス | メール・SMS・プッシュ通知、SQS や Lambda への一斉配信（ファンアウト） | トピック、サブスクリプション |
 | Amazon EventBridge | イベントバスとスケジューラー | AWS のサービスや SaaS のイベントを条件に応じて振り分ける、定期実行 | ルール、イベントバス、EventBridge Scheduler |
 | AWS Step Functions | ワークフローのオーケストレーション | 複数の Lambda 関数を、順番・分岐・再試行付きで実行 | ステートマシン、視覚的なワークフロー |
 | Amazon MQ | マネージドなメッセージブローカー（Apache ActiveMQ / RabbitMQ） | 既存システムを業界標準のプロトコルのまま移行 | JMS、AMQP、MQTT などの標準プロトコル |
@@ -234,7 +234,7 @@ S3 では、アクセス頻度に応じて **ストレージクラス** を選�
 | Amazon Kinesis Data Streams | ストリーミングデータをリアルタイムに収集 | クリックストリーム、IoT のデータ | リアルタイム、シャード |
 | Amazon Data Firehose（旧 Kinesis Data Firehose） | ストリーミングデータを S3、Redshift、OpenSearch Service などへ配信 | ログを S3 に自動で保存 | フルマネージド、ほぼリアルタイム |
 | Amazon Managed Service for Apache Flink（旧 Kinesis Data Analytics） | ストリーミングデータをリアルタイムに処理 | 異常検知、リアルタイムの集計 | Apache Flink |
-| Amazon MSK | マネージドな Apache Kafka | Kafka を使う既存システムの移行 | Kafka |
+| Amazon Managed Streaming for Apache Kafka（Amazon MSK） | マネージドな Apache Kafka | Kafka を使う既存システムの移行 | Kafka |
 | Amazon OpenSearch Service（旧 Amazon Elasticsearch Service） | 検索とログ分析 | 全文検索、ログの可視化 | OpenSearch、ダッシュボード |
 | Amazon Quick Suite（旧 Amazon QuickSight を含む） | BI（ダッシュボード・可視化）と、業務向けの生成 AI 機能をまとめたサービス | 経営ダッシュボード、データに基づく調査 | 【名称変更】2025年10月に QuickSight が Quick Suite へ再編（BI 機能は Amazon Quick Sight） |
 | AWS Lake Formation | データレイクの構築と、アクセス権限の一元管理 | S3 のデータレイクへのきめ細かなアクセス制御 | データレイク、ガバナンス |
@@ -315,7 +315,7 @@ AWS の AI サービスは、**生成 AI とアシスタント**（基盤モデ�
 | IoT | AWS IoT SiteWise | 産業機器のデータを収集・整理・分析 | 工場設備の稼働監視（SiteWise Monitor は新規受付終了） |
 | IoT | AWS IoT Device Management / AWS IoT Device Defender | 大量のデバイスの管理 / セキュリティ設定の監査 | ファームウェアの一括更新、設定不備の検出（Device Defender の Detect 機能は新規受付終了） |
 | ビジネスアプリケーション | Amazon Connect | クラウド型のコンタクトセンター | 電話やチャットの窓口を短期間で構築、従量課金、Amazon Lex と連携 |
-| ビジネスアプリケーション | Amazon SES | メールの送受信 | 会員登録の確認メール、大量のメール送信 |
+| ビジネスアプリケーション | Amazon Simple Email Service（Amazon SES） | メールの送受信 | 会員登録の確認メール、大量のメール送信 |
 | ビジネスアプリケーション | Amazon Pinpoint | 【サポート終了予定】マーケティング向けのメッセージ配信 | 2026年10月30日にサポート終了。移行先は [公式の移行ガイド](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) を参照 |
 | ビジネスアプリケーション | Amazon WorkMail | 【サポート終了予定】ビジネス用のメールとカレンダー | 2027年3月31日にサポート終了予定 |
 | フロントエンド（Web・モバイル） | AWS Amplify | Web・モバイルアプリのフルスタック開発とホスティング | フロントエンドを素早く公開 |
@@ -344,7 +344,7 @@ AWS の AI サービスは、**生成 AI とアシスタント**（基盤モデ�
 | Amazon AppStream 2.0 / Amazon WorkSpaces Web | 【名称変更】 | Amazon WorkSpaces Applications / Amazon WorkSpaces Secure Browser |
 | Amazon QLDB、AWS OpsWorks、Amazon Elastic Transcoder、AWS IoT Analytics | サービス終了（QLDB: 2025年7月31日、OpsWorks: 2024年、Elastic Transcoder: 2025年11月13日、IoT Analytics: 2025年12月15日） | Elastic Transcoder の後継は AWS Elemental MediaConvert |
 | Amazon CloudSearch | 新規受付終了（2024年7月） | Amazon OpenSearch Service |
-| AWS Data Pipeline | 新規受付終了 | AWS Glue、AWS Step Functions、Amazon MWAA |
+| AWS Data Pipeline | 新規受付終了 | AWS Glue、AWS Step Functions、Amazon Managed Workflows for Apache Airflow（Amazon MWAA） |
 | Amazon Forecast | 新規受付終了（2024年7月） | Amazon SageMaker Canvas |
 | Amazon Timestream for LiveAnalytics | 新規受付終了（2025年6月） | Amazon Timestream for InfluxDB |
 | Amazon S3 Select / S3 Glacier Select | 新規受付終了（2024年7月） | Amazon Athena など |

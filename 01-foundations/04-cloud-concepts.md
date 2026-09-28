@@ -48,7 +48,7 @@ AWS はクラウドコンピューティングを「IT リソースをインタ�
 
 | 特性（英語） | 意味 | AWS での例 |
 |---|---|---|
-| オンデマンド・セルフサービス（On-demand self-service） | 事業者の担当者とやり取りせずに、利用者が必要なときに自分でリソースを用意できる | マネジメントコンソールや API から数分で EC2 インスタンスを起動 |
+| オンデマンド・セルフサービス（On-demand self-service） | 事業者の担当者とやり取りせずに、利用者が必要なときに自分でリソースを用意できる | マネジメントコンソールや API から数分で Amazon Elastic Compute Cloud（Amazon EC2）のインスタンスを起動 |
 | 幅広いネットワークアクセス（Broad network access） | ネットワーク経由で、PC やスマートフォンなど多様な端末から利用できる | インターネット、VPN、専用線（AWS Direct Connect）経由で利用 |
 | リソースの共用（Resource pooling） | 物理リソースを多数の利用者で共有する（マルチテナント）。利用者は物理的な場所を細かく意識しない | 1 台の物理ホストを複数の顧客の EC2 インスタンスが共有（ハイパーバイザーで分離） |
 | スピーディな拡張性（Rapid elasticity） | 需要に応じて素早く拡張・縮小できる。利用者からは無限にあるように見える | EC2 Auto Scaling で台数を自動で増減 |
@@ -134,8 +134,8 @@ flowchart LR
 
 | モデル | 提供されるもの | 利用者が主に管理するもの | AWS の例 |
 |---|---|---|---|
-| IaaS（Infrastructure as a Service） | 仮想サーバー、ストレージ、ネットワークなどの基盤 | OS、ミドルウェア、アプリケーション、データ、ファイアウォールの設定 | Amazon EC2、Amazon EBS、Amazon VPC |
-| PaaS（Platform as a Service） | アプリケーションを動かす実行環境（OS やミドルウェアの管理を含む） | アプリケーションとデータ、実行環境の設定 | AWS Elastic Beanstalk、Amazon RDS（マネージドデータベース） |
+| IaaS（Infrastructure as a Service） | 仮想サーバー、ストレージ、ネットワークなどの基盤 | OS、ミドルウェア、アプリケーション、データ、ファイアウォールの設定 | Amazon EC2、Amazon Elastic Block Store（Amazon EBS）、Amazon Virtual Private Cloud（Amazon VPC） |
+| PaaS（Platform as a Service） | アプリケーションを動かす実行環境（OS やミドルウェアの管理を含む） | アプリケーションとデータ、実行環境の設定 | AWS Elastic Beanstalk、Amazon Relational Database Service（Amazon RDS） |
 | FaaS（Function as a Service） | イベントに応じて関数（コード）を実行する環境 | 関数のコード、設定（メモリ量、権限など） | AWS Lambda |
 | SaaS（Software as a Service） | そのまま使える完成したアプリケーション | データと利用設定（誰に使わせるかなど） | Amazon Connect（コンタクトセンター）、AWS Marketplace で提供される SaaS 製品 |
 
@@ -161,7 +161,7 @@ flowchart LR
 > - 「サーバーを管理せず、イベントに応じてコードを実行し、実行時間分だけ支払う」→ AWS Lambda（FaaS / サーバーレス）
 
 > [!NOTE]
-> 「サーバーレス」はサービスモデルの正式な分類名ではなく、「利用者がサーバーを意識・管理しなくてよい」サービスの総称です。AWS Lambda のほか、AWS Fargate、Amazon S3、Amazon DynamoDB、Amazon SQS などもサーバーレスと呼ばれます。
+> 「サーバーレス」はサービスモデルの正式な分類名ではなく、「利用者がサーバーを意識・管理しなくてよい」サービスの総称です。AWS Lambda のほか、AWS Fargate、Amazon Simple Storage Service（Amazon S3）、Amazon DynamoDB、Amazon Simple Queue Service（Amazon SQS）などもサーバーレスと呼ばれます。
 
 ## 4. デプロイモデル（クラウド / ハイブリッド / オンプレミス）
 
@@ -193,7 +193,7 @@ flowchart LR
 クラウドのセキュリティは、AWS と利用者が **分担** します。これを **責任共有モデル** と呼びます。
 
 - **AWS の責任**: **「クラウドのセキュリティ」**（Security **of** the Cloud）。データセンターの物理的なセキュリティ、ハードウェア、ネットワーク基盤、仮想化レイヤー、マネージドサービスの基盤を守ります。
-- **利用者の責任**: **「クラウドにおけるセキュリティ」**（Security **in** the Cloud）。データ、IAM によるアクセス権限、EC2 のゲスト OS のパッチ、セキュリティグループなどのファイアウォール設定、暗号化の設定、アプリケーションを守ります。
+- **利用者の責任**: **「クラウドにおけるセキュリティ」**（Security **in** the Cloud）。データ、AWS Identity and Access Management（IAM）によるアクセス権限、EC2 のゲスト OS のパッチ、セキュリティグループなどのファイアウォール設定、暗号化の設定、アプリケーションを守ります。
 
 どこまでが利用者の担当かは、使うサービスによって変わります。
 
@@ -381,7 +381,7 @@ flowchart LR
 
 | 要素 | 考え方 | AWS での例 |
 |---|---|---|
-| マネージドサービス | 構築・パッチ適用・バックアップなどの運用作業を AWS に任せ、人件費を減らす | Amazon RDS、Amazon ECS / Amazon EKS、Amazon DynamoDB、AWS Fargate |
+| マネージドサービス | 構築・パッチ適用・バックアップなどの運用作業を AWS に任せ、人件費を減らす | Amazon RDS、Amazon Elastic Container Service（Amazon ECS）/ Amazon Elastic Kubernetes Service（Amazon EKS）、Amazon DynamoDB、AWS Fargate |
 | 自動化 | 手作業を減らし、ミスと作業時間を減らす | AWS CloudFormation によるインフラのコード化 |
 | ライセンス戦略 | 手持ちのライセンスを持ち込む（BYOL: Bring Your Own License）か、料金にライセンス費用が含まれる形態（ライセンス込み）を選ぶ | Windows Server のライセンス込み EC2 インスタンス、Amazon RDS for Oracle の BYOL / ライセンス込み、BYOL 向けの EC2 Dedicated Hosts |
 | 購入オプション | 使い方に合わせて料金モデルを選ぶ | オンデマンド、Savings Plans、リザーブドインスタンス、スポットインスタンス（[08 章](08-billing-pricing-support.md)） |
@@ -543,21 +543,21 @@ AWS クラウドの 6 つの利点に含まれるものはどれですか。**2 
 
 - A. リホスト
 - B. リパーチェス
-- C. リファクタリング
-- D. リプラットフォーム
+- C. リプラットフォーム
+- D. リファクタリング
 
 <details>
 <summary>解答と解説</summary>
 
-**正解: D**
+**正解: C**
 
 **解説**: 基本構造は変えずに、一部（データベースの運用基盤）をマネージドサービスに置き換えて最適化する戦略は、リプラットフォーム（リフト・ティンカー&シフト）です。
 
 **各選択肢の検討**
 - A: ✗ リホストは、仮想マシンを EC2 にそのまま移すような戦略です。マネージドサービスへの置き換えは含みません。
 - B: ✗ リパーチェスは、別の製品（多くは SaaS）に乗り換える戦略です。
-- C: ✗ リファクタリングは、クラウドネイティブに設計し直す戦略です。「設計は変えない」という要件に反し、労力も大きくなります。
-- D: ✓ 要件に合致します。
+- C: ✓ 要件に合致します。
+- D: ✗ リファクタリングは、クラウドネイティブに設計し直す戦略です。「設計は変えない」という要件に反し、労力も大きくなります。
 
 </details>
 
@@ -591,8 +591,7 @@ AWS クラウドの 6 つの利点に含まれるものはどれですか。**2 
 - 関連する章: [AWS のセキュリティとコンプライアンス](07-security-and-compliance.md)（責任共有モデルの詳細）、[料金・請求・サポート](08-billing-pricing-support.md)（料金モデル）、Phase 2 の [AWS Well-Architected Framework](../02-associate/17-well-architected.md) と [移行とハイブリッド接続](../02-associate/16-migration-hybrid.md)
 - 公式ドキュメント
   - [クラウドコンピューティングの 6 つの利点（AWS ホワイトペーパー）](https://docs.aws.amazon.com/ja_jp/whitepapers/latest/aws-overview/six-advantages-of-cloud-computing.html)
-  - [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
-  - [AWS Cloud Adoption Framework](https://aws.amazon.com/cloud-adoption-framework/)
+  - [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) / [AWS Cloud Adoption Framework](https://aws.amazon.com/cloud-adoption-framework/)
   - [移行戦略（AWS Prescriptive Guidance）](https://docs.aws.amazon.com/prescriptive-guidance/latest/large-migration-guide/migration-strategies.html)
   - [NIST SP 800-145: The NIST Definition of Cloud Computing](https://csrc.nist.gov/pubs/sp/800/145/final)
   - [AWS Certified Cloud Practitioner（CLF-C02）試験ガイド](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
