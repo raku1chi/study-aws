@@ -171,7 +171,7 @@ Well-Architected には、すべての柱に共通する 6 つの一般的な設
 | 進化 | 変更と構成の履歴を記録し、振り返りに使う | AWS CloudTrail、AWS Config |
 
 > [!WARNING]
-> **ひっかけ注意**: Systems Manager の Incident Manager と Change Manager は 2025 年 11 月に新規受付を終了しています。
+> **ひっかけ注意**: Systems Manager の Incident Manager と Change Manager は、2025 年 11 月に新規受付の終了が発表されています。
 > 新しい設計でインシデント管理や変更管理を問われたら、OpsCenter・Automation・パートナー製品などを検討します（詳しくは [監視と運用管理](13-monitoring-management.md)）。
 
 ### 3.4 SAA での問われ方
@@ -597,7 +597,7 @@ Framework レンズで全体をレビューしたうえで、ワークロード�
 | IoT レンズ（IoT Lens） | デバイス、接続、データ処理を含む IoT ワークロード |
 
 > [!NOTE]
-> レンズの一覧は随時追加・改訂されています（2025 年 11 月には生成 AI・責任ある AI・機械学習の各レンズが改訂されました）。
+> レンズの一覧は随時追加・改訂されています（2025 年 11 月には生成 AI・責任ある AI・機械学習の各レンズが公開・改訂されました）。
 > 生成 AI とエージェント AI の設計は SAP-C03 の新しい出題範囲です。詳しくは [生成 AI・エージェント AI のアーキテクチャ](../03-professional/09-generative-ai-architecture.md) で扱います。
 
 SAA-C03 でレンズの内容が直接問われることはほとんどありません。
