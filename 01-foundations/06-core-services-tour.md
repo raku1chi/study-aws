@@ -270,3 +270,318 @@ AWS の AI サービスは、**生成 AI とアシスタント**（基盤モデ�
 
 > [!WARNING]
 > **ひっかけ注意**: 試験や古い教材では、「社内文書の検索」に Amazon Kendra、「業務向けの生成 AI アシスタント」に Amazon Q Business、「エージェント」に Agents for Amazon Bedrock が正解として登場する可能性があります。いずれも現在は新規受付を終了しているため、新しく構成する場合は Amazon Bedrock Knowledge Bases（RAG）や Amazon Bedrock AgentCore などを検討します。
+
+## 11. 開発者ツール
+
+| サービス | 一言で | CLF のキーワード |
+|---|---|---|
+| AWS CodeCommit | Git リポジトリのホスティング | 2024年7月に新規受付を停止したが、2025年11月に一般提供へ復帰（新規利用可） |
+| AWS CodeBuild | ソースコードのビルドとテストを実行 | CI、従量課金 |
+| AWS CodeDeploy | デプロイの自動化 | EC2、オンプレミス、Lambda、ECS へのデプロイ、ブルー / グリーンデプロイ |
+| AWS CodePipeline | CI/CD パイプラインの構築 | ソース → ビルド → テスト → デプロイの自動化 |
+| AWS CodeArtifact | ソフトウェアパッケージのリポジトリ | npm、Maven、PyPI などのパッケージの共有 |
+| AWS CDK | プログラミング言語でインフラを定義 | TypeScript や Python などで IaC、CloudFormation のテンプレートを生成 |
+| AWS X-Ray | 分散トレーシング | マイクロサービスのボトルネックやエラーの特定 |
+| AWS Fault Injection Service（AWS FIS） | 意図的に障害を注入する（カオスエンジニアリング） | 回復力の検証 |
+| AWS Cloud9 | 【新規受付終了】ブラウザベースの IDE | 2024年7月に新規受付終了。AWS CloudShell や IDE ツールキットへ |
+| Amazon CodeCatalyst / Amazon CodeGuru Reviewer | 【新規受付終了】統合開発サービス / 自動コードレビュー | 2025年に新規受付の終了を発表 |
+
+## 12. 移行と転送
+
+| サービス | 一言で | CLF のキーワード |
+|---|---|---|
+| AWS Transform | エージェント型 AI で、移行とモダナイゼーションを加速 | VMware 環境の移行、メインフレーム（COBOL → Java）、.NET や Windows のモダナイズ、移行評価。2025年5月 GA |
+| AWS Application Migration Service（AWS MGN） | サーバーをそのまま AWS へ移行 | リホスト（リフト&シフト）、継続的なレプリケーション、短いダウンタイム |
+| AWS Database Migration Service（AWS DMS） | データベースを稼働させたまま移行 | 同種・異種のエンジン間の移行、継続的なレプリケーション |
+| AWS Schema Conversion Tool（AWS SCT）/ DMS Schema Conversion | 異なる DB エンジン間でスキーマを変換 | Oracle → PostgreSQL などの異種移行 |
+| AWS DataSync | ネットワーク経由（オンライン）での大容量データ転送 | NFS / SMB のファイルサーバーから S3、EFS、FSx へ。スケジュール実行、暗号化 |
+| AWS Transfer Family | SFTP / FTPS / FTP / AS2 で、S3 や EFS にファイルを転送 | 取引先とのファイル交換、マネージドな SFTP |
+| AWS Data Transfer Terminal | データを持ち込んで高速にアップロードできる物理的な拠点 | 大量データのオフライン転送 |
+| AWS Snow Family | 【新規受付終了】物理デバイスによるデータ転送とエッジ処理 | Snowcone と旧型の Snowball Edge は 2024年11月に終了、Snowball Edge は 2025年11月7日に新規受付終了 |
+| AWS Migration Hub / AWS Application Discovery Service | 【新規受付終了】移行の進捗管理 / オンプレミスのサーバー情報の収集 | 2025年11月7日に新規受付終了。後継は AWS Transform |
+
+> [!WARNING]
+> **ひっかけ注意**: 試験や古い教材では、「大量のデータを物理デバイスで運ぶ → AWS Snowball Edge」「移行の進捗を一元管理 → AWS Migration Hub」のような問題が出る可能性があります。概念として理解しつつ、新規の利用者には DataSync、Data Transfer Terminal、AWS Transform などが案内されている現状も知っておきましょう。
+
+## 13. そのほかのカテゴリ
+
+| カテゴリ | サービス | 一言で | CLF のキーワード・状態 |
+|---|---|---|---|
+| エンドユーザーコンピューティング | Amazon WorkSpaces | マネージドな仮想デスクトップ（DaaS） | テレワーク、Windows / Linux のデスクトップ（WorkSpaces Pools は 2027年6月30日にサポート終了予定） |
+| エンドユーザーコンピューティング | Amazon WorkSpaces Applications（旧 Amazon AppStream 2.0） | デスクトップアプリケーションをブラウザにストリーミング配信 | 【名称変更】端末へのインストール不要 |
+| エンドユーザーコンピューティング | Amazon WorkSpaces Secure Browser（旧 Amazon WorkSpaces Web） | 安全なブラウザ環境から、社内の Web アプリや SaaS にアクセス | 【名称変更】端末にデータを残さない |
+| IoT | AWS IoT Core | 大量の IoT デバイスをクラウドに安全に接続 | MQTT、デバイスシャドウ、ルールエンジン |
+| IoT | AWS IoT Greengrass | エッジのデバイス上でローカル処理を実行 | 通信が不安定な現場での処理、ML 推論（V1 は 2026年10月7日にサポート終了予定。V2 を使用） |
+| IoT | AWS IoT SiteWise | 産業機器のデータを収集・整理・分析 | 工場設備の稼働監視（SiteWise Monitor は新規受付終了） |
+| IoT | AWS IoT Device Management / AWS IoT Device Defender | 大量のデバイスの管理 / セキュリティ設定の監査 | ファームウェアの一括更新、設定不備の検出（Device Defender の Detect 機能は新規受付終了） |
+| ビジネスアプリケーション | Amazon Connect | クラウド型のコンタクトセンター | 電話やチャットの窓口を短期間で構築、従量課金、Amazon Lex と連携 |
+| ビジネスアプリケーション | Amazon SES | メールの送受信 | 会員登録の確認メール、大量のメール送信 |
+| ビジネスアプリケーション | Amazon Pinpoint | 【サポート終了予定】マーケティング向けのメッセージ配信 | 2026年10月30日にサポート終了。移行先は [公式の移行ガイド](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) を参照 |
+| ビジネスアプリケーション | Amazon WorkMail | 【サポート終了予定】ビジネス用のメールとカレンダー | 2027年3月31日にサポート終了予定 |
+| フロントエンド（Web・モバイル） | AWS Amplify | Web・モバイルアプリのフルスタック開発とホスティング | フロントエンドを素早く公開 |
+| フロントエンド（Web・モバイル） | AWS Device Farm | 実機のスマートフォンやタブレットでアプリをテスト | Android / iOS、ブラウザのテスト |
+
+## 14. 廃止・名称変更・新規受付終了の一覧（2026年9月時点）
+
+これまでの表に出てきたものも含めて、状態が変わったサービスをまとめます。
+
+| サービス | 状態 | 代替・後継 |
+|---|---|---|
+| AWS Cloud9 | 新規受付終了（2024年7月） | AWS CloudShell、IDE ツールキット |
+| AWS CodeCommit | 2024年7月に新規受付を停止したが、**2025年11月に一般提供へ復帰** | （新規利用可） |
+| AWS App Runner | 新規受付終了（2026年4月30日） | Amazon ECS Express Mode |
+| Amazon QuickSight | 【名称変更】Amazon Quick Suite へ再編（2025年10月） | BI 機能は Amazon Quick Sight |
+| AWS Snow Family | Snowcone と旧型の Snowball Edge は終了（2024年11月）。Snowball Edge は新規受付終了（2025年11月7日） | AWS DataSync、AWS Data Transfer Terminal、AWS Outposts |
+| AWS Migration Hub / AWS Application Discovery Service | 新規受付終了（2025年11月7日） | AWS Transform |
+| Amazon Q Developer（IDE） | 新規サインアップ停止（2026年5月15日）。IDE プラグインは 2027年4月30日にサポート終了予定 | Kiro |
+| Amazon Q Business / Amazon Kendra | 新規受付終了（2026年6月に発表） | 公式の移行ガイド（[Q Business](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html)、[Kendra](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html)）を参照 |
+| Agents for Amazon Bedrock | 「Agents Classic」に改称し、新規受付終了（2026年7月30日） | Amazon Bedrock AgentCore |
+| Amazon SageMaker（ML サービス） | 【名称変更】Amazon SageMaker AI（2024年12月） | 「Amazon SageMaker」は、次世代のデータ・分析・AI の統合プラットフォーム（SageMaker Unified Studio など）の名称に |
+| AWS Security Hub | 【名称変更】従来の機能は AWS Security Hub CSPM に。統合版の AWS Security Hub が 2025年12月に GA | — |
+| AWS Audit Manager | 新規受付終了（2026年3月に発表） | [公式ガイド](https://docs.aws.amazon.com/audit-manager/latest/userguide/audit-manager-availability-change.html) を参照 |
+| AWS SSO / AWS Chatbot | 【名称変更】 | AWS IAM Identity Center（2022年）/ Amazon Q Developer in chat applications（2025年2月） |
+| Amazon Kinesis Data Firehose / Amazon Kinesis Data Analytics | 【名称変更】 | Amazon Data Firehose / Amazon Managed Service for Apache Flink |
+| Amazon AppStream 2.0 / Amazon WorkSpaces Web | 【名称変更】 | Amazon WorkSpaces Applications / Amazon WorkSpaces Secure Browser |
+| Amazon QLDB、AWS OpsWorks、Amazon Elastic Transcoder、AWS IoT Analytics | サービス終了（QLDB: 2025年7月31日、OpsWorks: 2024年、Elastic Transcoder: 2025年11月13日、IoT Analytics: 2025年12月15日） | Elastic Transcoder の後継は AWS Elemental MediaConvert |
+| Amazon CloudSearch | 新規受付終了（2024年7月） | Amazon OpenSearch Service |
+| AWS Data Pipeline | 新規受付終了 | AWS Glue、AWS Step Functions、Amazon MWAA |
+| Amazon Forecast | 新規受付終了（2024年7月） | Amazon SageMaker Canvas |
+| Amazon Timestream for LiveAnalytics | 新規受付終了（2025年6月） | Amazon Timestream for InfluxDB |
+| Amazon S3 Select / S3 Glacier Select | 新規受付終了（2024年7月） | Amazon Athena など |
+| AWS App Mesh | 2026年9月30日にサポート終了 | Amazon ECS Service Connect、Amazon VPC Lattice |
+| AWS Proton / AWS WAF Classic | 2026年10月7日にサポート終了予定 | WAF Classic は現行の AWS WAF へ |
+
+> [!IMPORTANT]
+> 試験問題や古い教材には、旧名称や新規受付を終了したサービスが登場する可能性があります。選択肢に出てきたら、「そのサービスが何をするものか」で判断してください。最新の状態は、AWS 公式の [メンテナンス中のサービス](https://docs.aws.amazon.com/general/latest/gr/maintenance_services.html)、[サンセット（サポート終了予定）のサービス](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html)、[終了したサービス](https://docs.aws.amazon.com/general/latest/gr/full_shutdown_services.html) の一覧と、この教材の [サービスの変更点](../06-reference/service-changes.md) で確認できます。
+
+## 15. 「こんなときはこのサービス」早見表
+
+問題文のキーワードから、すぐにサービスを思い浮かべられるように練習しましょう。
+
+| こんなとき（問題文のキーワード） | サービス |
+|---|---|
+| OS を自由に選べる仮想サーバーが欲しい | Amazon EC2 |
+| サーバーを管理せず、イベントに応じてコードを実行したい | AWS Lambda |
+| コードをアップロードするだけで、Web アプリの実行環境を作りたい | AWS Elastic Beanstalk |
+| 月額料金のシンプルな仮想サーバーで、小さなサイトを始めたい | Amazon Lightsail |
+| サーバーを管理せずにコンテナを実行したい | AWS Fargate（Amazon ECS / Amazon EKS と組み合わせる） |
+| 需要に合わせて EC2 インスタンスの台数を自動で増減したい | Amazon EC2 Auto Scaling |
+| 画像・動画・バックアップを、高い耐久性で安く保存したい | Amazon S3 |
+| ほとんど取り出さないデータを、最も安く長期保存したい | S3 Glacier Deep Archive |
+| 複数の Linux サーバーから同時にマウントできる共有ファイルが欲しい | Amazon EFS |
+| Windows のファイル共有（SMB、Active Directory 連携）が欲しい | Amazon FSx for Windows File Server |
+| オンプレミスのアプリから、S3 をファイル共有として使いたい | AWS Storage Gateway（S3 File Gateway） |
+| リレーショナル DB を、運用の手間を減らして使いたい | Amazon RDS / Amazon Aurora |
+| ミリ秒単位で応答する、サーバーレスな NoSQL DB が欲しい | Amazon DynamoDB |
+| DB の読み取りをキャッシュで高速化したい | Amazon ElastiCache |
+| 大量データを集計・分析するデータウェアハウスが欲しい | Amazon Redshift |
+| S3 のデータに、サーバーレスで SQL を実行したい | Amazon Athena |
+| ETL の処理やデータカタログが欲しい | AWS Glue |
+| リアルタイムのストリーミングデータを収集したい | Amazon Kinesis Data Streams |
+| BI ダッシュボードを作りたい | Amazon Quick Sight（Amazon Quick Suite。旧 QuickSight） |
+| 世界中の利用者に、コンテンツを低レイテンシーで配信したい | Amazon CloudFront |
+| ドメイン名を登録し、DNS を管理したい | Amazon Route 53 |
+| オンプレミスと AWS を専用線でつなぎたい | AWS Direct Connect |
+| オンプレミスと AWS を、インターネット経由の暗号化通信ですぐにつなぎたい | AWS Site-to-Site VPN |
+| AWS リソースへのアクセス権限を管理したい | AWS IAM |
+| 社員に、複数のアカウントや業務アプリへのシングルサインオンを提供したい | AWS IAM Identity Center |
+| 自社アプリの利用者のサインアップ・サインインを実装したい | Amazon Cognito |
+| 暗号鍵を管理したい | AWS KMS（専用の HSM が必要なら AWS CloudHSM） |
+| DB のパスワードを安全に保管し、自動でローテーションしたい | AWS Secrets Manager |
+| SQL インジェクションや XSS から Web アプリを守りたい | AWS WAF |
+| DDoS 攻撃から守りたい | AWS Shield（Standard は自動・無料。高度な保護は Advanced） |
+| 不審な API 呼び出しやマルウェアなどの脅威を自動で検出したい | Amazon GuardDuty |
+| EC2 やコンテナイメージの脆弱性をスキャンしたい | Amazon Inspector |
+| S3 に保存された個人情報を見つけたい | Amazon Macie |
+| AWS のコンプライアンスレポート（SOC、ISO など）を入手したい | AWS Artifact |
+| 誰が・いつ・どの API を呼び出したかを記録したい | AWS CloudTrail |
+| CPU 使用率などを監視し、しきい値を超えたら通知したい | Amazon CloudWatch |
+| リソースの設定変更の履歴と、ルールへの準拠を確認したい | AWS Config |
+| インフラをテンプレートでコード化したい | AWS CloudFormation（プログラミング言語で書くなら AWS CDK） |
+| 複数のアカウントを一元管理し、請求をまとめたい | AWS Organizations |
+| コスト・セキュリティ・耐障害性などのベストプラクティスを自動でチェックしたい | AWS Trusted Advisor |
+| コンポーネント間を、キューで疎結合にしたい | Amazon SQS |
+| 1 つの通知を複数の宛先へ送りたい、メールや SMS で通知したい | Amazon SNS |
+| 基盤モデルを API で使って、生成 AI アプリを作りたい | Amazon Bedrock |
+| 独自の機械学習モデルを構築・学習・デプロイしたい | Amazon SageMaker AI |
+| 画像や動画から、顔や物体を検出したい | Amazon Rekognition |
+| 音声を文字に起こしたい | Amazon Transcribe |
+| テキストを音声で読み上げたい | Amazon Polly |
+| 請求書や申込書から、文字や表のデータを抽出したい | Amazon Textract |
+| 文章の感情（肯定的・否定的）を分析したい | Amazon Comprehend |
+| 音声やテキストで会話するチャットボットを作りたい | Amazon Lex |
+| サーバーをそのまま AWS に移行（リホスト）したい | AWS Application Migration Service |
+| データベースを、稼働させたまま AWS に移行したい | AWS DMS |
+| オンプレミスのファイルを、ネットワーク経由で S3 に大量転送したい | AWS DataSync |
+| 社員に仮想デスクトップを配布したい | Amazon WorkSpaces |
+| コンタクトセンターを短期間で構築したい | Amazon Connect |
+| アプリから大量のメールを送信したい | Amazon SES |
+
+## まとめ
+
+- AWS のサービスは、コンピューティング、ストレージ、データベース、ネットワーク、セキュリティ、管理、アプリケーション統合、分析、AI / ML などのカテゴリに分けて覚える
+- コンピューティング: EC2（IaaS）、Lambda（FaaS）、ECS / EKS / Fargate（コンテナ）、Elastic Beanstalk（PaaS）、Lightsail（シンプルな仮想サーバー）
+- ストレージ: ブロックは EBS、ファイルは EFS / FSx、オブジェクトは S3。S3 はストレージクラスでコストを最適化する
+- データベース: リレーショナルは RDS / Aurora、NoSQL は DynamoDB、キャッシュは ElastiCache、データウェアハウスは Redshift
+- 監視系の 3 つ: 性能は CloudWatch、API の操作記録は CloudTrail、設定の履歴と準拠は Config
+- 疎結合: SQS（キュー）、SNS（Pub/Sub）、EventBridge（イベントのルーティング）、Step Functions（ワークフロー）
+- AI: 生成 AI は Bedrock、独自モデルは SageMaker AI、用途別には Rekognition / Transcribe / Polly / Translate / Textract / Comprehend / Lex / Personalize
+- 状態の変化に注意: Cloud9、App Runner、Snowball Edge、Migration Hub などは新規受付終了、CodeCommit は一般提供に復帰、QuickSight は Quick Suite へ再編
+
+## 確認問題
+
+### 問1
+
+ある写真共有サービスでは、利用者が Amazon S3 に画像をアップロードするたびに、サムネイル画像を自動で作成したいと考えています。サーバーの管理は行いたくなく、処理が実行された時間の分だけ料金を支払いたいと考えています。どのサービスを使うべきですか。
+
+- A. AWS Lambda
+- B. Amazon EC2
+- C. Amazon Lightsail
+- D. Amazon EC2 Auto Scaling
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: A**
+
+**解説**: Lambda は、S3 へのアップロードなどのイベントに応じてコードを実行するサーバーレスのサービスです。実行時間に応じて課金されます。
+
+**各選択肢の検討**
+- A: ✓ サーバー管理が不要で、実行時間分だけの支払いという要件を満たします。
+- B: ✗ サーバー（OS）の管理が必要で、処理がないときも起動していれば料金がかかります。
+- C: ✗ 月額料金の仮想サーバーで、サーバーの管理が必要です。
+- D: ✗ EC2 インスタンスの台数を増減するサービスで、サーバーの管理は残ります。
+
+</details>
+
+### 問2
+
+ある企業は、複数の Linux の EC2 インスタンスで動く Web アプリケーションから、同じファイル群を同時に読み書きしたいと考えています。ファイルの量は増え続けるため、容量の管理はしたくありません。最も適したサービスはどれですか。
+
+- A. Amazon EBS
+- B. Amazon S3 Glacier Flexible Retrieval
+- C. Amazon EFS
+- D. EC2 インスタンスストア
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: C**
+
+**解説**: Amazon EFS は、複数の Linux サーバーから NFS で同時にマウントできる共有ファイルストレージです。容量は自動で伸縮します。
+
+**各選択肢の検討**
+- A: ✗ EBS は、基本的に同じ AZ の 1 つの EC2 インスタンスにアタッチして使うブロックストレージで、容量も自分で管理します。
+- B: ✗ アーカイブ用のストレージクラスで、取り出しに時間がかかり、ファイルシステムとしてマウントすることもできません。
+- C: ✓ 共有、同時アクセス、容量の自動管理という要件を満たします。
+- D: ✗ 一時的なストレージで、インスタンスを停止・終了するとデータが失われ、共有もできません。
+
+</details>
+
+### 問3
+
+あるセキュリティ担当者は、「本番環境の S3 バケットを削除したのは誰か、いつ操作したか」を調べる必要があります。どのサービスを使うべきですか。
+
+- A. Amazon CloudWatch
+- B. AWS Config
+- C. AWS Trusted Advisor
+- D. AWS CloudTrail
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: D**
+
+**解説**: CloudTrail は、AWS の API 呼び出しを、呼び出した主体・日時・送信元などとともに記録します。「誰が・いつ・何をしたか」の調査に使います。
+
+**各選択肢の検討**
+- A: ✗ メトリクスやログによる監視とアラームのサービスです。API 操作の記録は CloudTrail が担います。
+- B: ✗ リソースの設定の変更履歴と、ルールへの準拠を評価するサービスです。「誰が API を呼び出したか」は CloudTrail で確認します。
+- C: ✗ ベストプラクティスに沿っているかをチェックするサービスです。
+- D: ✓ API の操作履歴を調べるためのサービスです。
+
+</details>
+
+### 問4
+
+あるコールセンターでは、顧客との通話の録音を分析して、顧客満足度の傾向を把握したいと考えています。録音をテキストに変換し、そのテキストから顧客の感情（肯定的・否定的）を判定する必要があります。使うべきサービスはどれですか。**2 つ選択してください。**
+
+- A. Amazon Polly
+- B. Amazon Transcribe
+- C. Amazon Comprehend
+- D. Amazon Translate
+- E. Amazon Rekognition
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: B、C**
+
+**解説**: Transcribe で音声をテキストに変換し、Comprehend でテキストの感情を分析します。
+
+**各選択肢の検討**
+- A: ✗ テキストを音声に変換するサービスで、変換の方向が逆です。
+- B: ✓ 音声をテキストに変換します。
+- C: ✓ テキストから感情などを分析します。
+- D: ✗ 翻訳のサービスです。
+- E: ✗ 画像や動画を分析するサービスです。
+
+</details>
+
+### 問5
+
+ある企業は、社内向けに文章の要約や質問応答を行う生成 AI アプリケーションを開発したいと考えています。複数の企業が提供する基盤モデルの中から用途に合ったものを選び、API で利用したいと考えています。機械学習のインフラは管理したくありません。どのサービスを使うべきですか。
+
+- A. Amazon SageMaker AI
+- B. Amazon Bedrock
+- C. Amazon Lex
+- D. Amazon Personalize
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: B**
+
+**解説**: Amazon Bedrock は、さまざまな企業の基盤モデルを API で利用できるフルマネージドな生成 AI サービスです。インフラを管理する必要はありません。
+
+**各選択肢の検討**
+- A: ✗ 独自の機械学習モデルを構築・学習・デプロイするための基盤です。モデルや実行環境の管理の負担が大きくなります。
+- B: ✓ すべての要件を満たします。
+- C: ✗ 会話インターフェイス（チャットボット）を作るサービスで、複数の基盤モデルから選んで使うサービスではありません。
+- D: ✗ レコメンデーションのサービスです。
+
+</details>
+
+### 問6
+
+ある企業は、オンプレミスの NFS ファイルサーバーにある大量のデータを Amazon S3 に移行し、移行後もしばらくは差分を定期的に同期したいと考えています。データセンターには十分な帯域のネットワーク回線があります。この企業は AWS を新しく使い始める新規顧客です。最も適したサービスはどれですか。
+
+- A. AWS Snowball Edge
+- B. AWS Application Migration Service
+- C. Amazon Kinesis Data Streams
+- D. AWS DataSync
+
+<details>
+<summary>解答と解説</summary>
+
+**正解: D**
+
+**解説**: AWS DataSync は、ネットワーク経由でのデータ転送を自動化するサービスです。スケジュールを設定して、差分を定期的に同期することもできます。
+
+**各選択肢の検討**
+- A: ✗ 物理デバイスでデータを運ぶサービスですが、2025年11月7日に新規顧客の受付を終了しています。十分な帯域があり、定期的な同期も必要という要件にも合いません。
+- B: ✗ サーバー（OS やアプリケーション）をそのまま移行するサービスで、ファイルデータの転送用ではありません。
+- C: ✗ ストリーミングデータをリアルタイムに収集するサービスで、ファイルの移行には使いません。
+- D: ✓ オンラインでの大量転送と定期的な同期という要件を満たします。
+
+</details>
+
+## 次のステップ
+
+- 次の章: [AWS のセキュリティとコンプライアンス](07-security-and-compliance.md) で、6 節のセキュリティサービスと責任共有モデルを詳しく学びます
+- リファレンス: [サービス早見表](../06-reference/service-cheatsheet.md)、[問題文キーワード→解答 対応表](../06-reference/exam-keywords.md)、[サービスの変更点](../06-reference/service-changes.md)
+- ハンズオン: [Lab 02: VPC をゼロから作り EC2 で Web サーバー](../04-labs/lab02-vpc-ec2.md) で、VPC・EC2・セキュリティグループを実際に触ってみましょう
+- 公式ドキュメント: [AWS のクラウド製品](https://aws.amazon.com/products/)、[AWS Certified Cloud Practitioner（CLF-C02）試験ガイド](https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html)
+
+---
+[← 前の章: AWS グローバルインフラストラクチャ](05-global-infrastructure.md) | [目次](README.md) | [次の章: AWS のセキュリティとコンプライアンス →](07-security-and-compliance.md)
