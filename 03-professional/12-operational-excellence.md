@@ -493,7 +493,7 @@ Amazon Inspector は、脆弱性管理を自動化するサービスです。
 - **継続的な評価**: 新しい CVE が公開されると、既存のリソースも自動で再評価します。
 - **CI/CD との連携**: Inspector SBOM Generator（sbomgen）でイメージやディレクトリから SBOM を作り、Inspector のスキャン API で評価できます。パイプラインで重大度のしきい値を超えたらビルドを失敗させる、といったゲートを作れます。
 - **SBOM のエクスポート**: 管理対象のリソースの SBOM を CycloneDX や SPDX の形式で S3 にエクスポートできます。
-- **組織全体での有効化**: 委任管理者アカウントから組織のアカウントを自動で有効化できます。2025年11月からは Organizations の Inspector ポリシーでも一元的に有効化を管理できます。検出結果は Security Hub に集約します。
+- **組織全体での有効化**: 委任管理者アカウントから組織のアカウントを自動で有効化できます。2025年11月からは Organizations の Inspector ポリシーでも一元的に有効化を管理できます。検出結果は Security Hub（2025年12月に一般提供された統合版。GuardDuty、Inspector、Macie、Security Hub CSPM などの検出結果を相関分析する）に集約します。
 
 | 観点 | ECR のベーシックスキャン | ECR の拡張スキャン（Inspector） |
 |---|---|---|

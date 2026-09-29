@@ -243,7 +243,7 @@ LIMIT 10;
 なお、社内向けに独自の料金レートやマージンを乗せた請求書（プロフォーマ請求）を作りたい場合は、**AWS Billing Conductor** を使います。
 
 > [!NOTE]
-> 公式ドキュメント: [AWS Cost Categories](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-cost-categories.html)
+> 公式ドキュメント: [AWS Cost Categories](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html)
 
 ### 2.5 分割コスト配分データ（ECS / EKS）
 
