@@ -386,7 +386,7 @@ Phase 3 の目次に示した目安時間の合計は約 100 時間です。次�
 | [Organizing Your AWS Environment Using Multiple Accounts](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html) | OU 設計、アカウントの分け方、ガバナンスのベストプラクティス | 02 |
 | [Disaster Recovery of Workloads on AWS](https://docs.aws.amazon.com/whitepapers/latest/disaster-recovery-workloads-on-aws/disaster-recovery-workloads-on-aws.html) | 4 つの DR 戦略、RPO/RTO の考え方 | 06 |
 | [Building a Scalable and Secure Multi-VPC AWS Network Infrastructure](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/welcome.html) | Transit Gateway、集中型エグレス・インスペクション、ハイブリッド DNS | 04 |
-| [AWS Security Reference Architecture（AWS SRA）](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html) | マルチアカウントでのセキュリティサービスの配置 | 02、05 |
+| [AWS Security Reference Architecture（AWS SRA）](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/) | マルチアカウントでのセキュリティサービスの配置 | 02、05 |
 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) | 6 つの柱と設計原則。生成 AI・エージェント AI などのレンズもある | 全章 |
 | [Amazon Builders' Library](https://aws.amazon.com/builders-library/) | Amazon が実際に使っている設計手法（タイムアウトとリトライ、静的安定性、シャッフルシャーディングなど） | 06、08 |
 | [AWS Architecture Center](https://aws.amazon.com/architecture/) | 参照アーキテクチャ図と設計ガイダンス | 全章 |

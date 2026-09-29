@@ -1088,7 +1088,7 @@ S3 Object Lock には 2 つのモードがあります。
 - 関連する章: [マルチアカウント戦略とガバナンス](02-multi-account-governance.md)（SCP / RCP / 宣言型ポリシー）、[大規模な ID とアクセス管理](03-identity-federation.md)
 - 関連ハンズオン: [Lab 10: Organizations と SCP によるガバナンス](../04-labs/lab10-organizations-scp.md)
 - 公式ドキュメント:
-  - [AWS Security Reference Architecture（AWS SRA）](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html)
+  - [AWS Security Reference Architecture（AWS SRA）](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/)
   - [AWS KMS デベロッパーガイド](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html)
   - [AWS Security Incident Response ユーザーガイド](https://docs.aws.amazon.com/security-ir/latest/userguide/what-is.html)
 
