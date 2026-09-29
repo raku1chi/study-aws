@@ -102,7 +102,7 @@ pie showData
 - [ ] ルートユーザーの保護方法（MFA、アクセスキーを作らない）と、ルートユーザーでしかできない作業を挙げられる
 - [ ] IAM のユーザー・グループ・ロール・ポリシー、最小権限、MFA、アクセスキーの扱いを説明できる
 - [ ] IAM Identity Center、AWS Organizations（SCP）、Amazon Cognito の役割を区別できる
-- [ ] AWS Artifact（AWS のコンプライアンスレポート）と AWS Audit Manager の違いを説明できる
+- [ ] AWS Artifact（AWS のコンプライアンスレポート）と AWS Audit Manager（2026年3月に新規受付終了を発表）の違いを説明できる
 - [ ] CloudTrail / Config / CloudWatch / GuardDuty / Inspector / Macie / Detective / Security Hub を区別できる
 - [ ] KMS / CloudHSM / ACM / Secrets Manager を区別できる
 - [ ] セキュリティグループとネットワーク ACL、WAF / Shield / Firewall Manager / Network Firewall を区別できる

@@ -402,6 +402,9 @@ Amazon RDS Custom は、**Oracle と SQL Server** 向けに、マネージドの
 > [!TIP]
 > **試験のポイント**: 「既存の業務アプリケーションが、Oracle の OS レベルのカスタマイズを必要とする。それでも運用負荷はできるだけ下げたい」→ **RDS Custom**。
 
+> [!WARNING]
+> **ひっかけ注意（2026年9月時点の状況）**: **RDS Custom for Oracle は 2027年3月31日にサポート終了** が発表されています（[サービスのサンセット一覧](https://docs.aws.amazon.com/general/latest/gr/sunset_services.html)）。RDS Custom for SQL Server は引き続き提供されています。試験では従来どおり「Oracle の OS レベルのカスタマイズ → RDS Custom」が正解になり得ますが、実務で新規に採用する場合は、RDS for Oracle・EC2 上での自前運用・他エンジンへの移行（[移行とモダナイゼーション](../03-professional/07-migration-modernization.md)）を比較してください。
+
 ### 2.11 監視・メンテナンス・コストのポイント
 
 | 目的 | 使う機能 |
