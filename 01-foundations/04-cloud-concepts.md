@@ -342,7 +342,7 @@ flowchart LR
 > [!NOTE]
 > 移行を支援する主なサービスです（詳細は Phase 2 の [移行とハイブリッド接続](../02-associate/16-migration-hybrid.md)）。
 > - **AWS Transform**: エージェント型 AI で、移行の評価と計画、VMware 環境からの移行、メインフレームや .NET アプリケーションのモダナイズを支援します（2025年5月 GA）。
-> - **AWS Application Migration Service（AWS MGN）**: サーバーのリホスト
+> - **AWS Application Migration Service（AWS MGN。2026年6月に AWS Transform MGN へ名称変更）**: サーバーのリホスト
 > - **AWS Database Migration Service（AWS DMS）**: データベースの移行
 > - **AWS DataSync**: ファイルやオブジェクトデータのオンライン転送
 

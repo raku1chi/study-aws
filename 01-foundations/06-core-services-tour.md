@@ -291,7 +291,7 @@ AWS の AI サービスは、**生成 AI とアシスタント**（基盤モデ�
 | サービス | 一言で | CLF のキーワード |
 |---|---|---|
 | AWS Transform | エージェント型 AI で、移行とモダナイゼーションを加速 | VMware 環境の移行、メインフレーム（COBOL → Java）、.NET や Windows のモダナイズ、移行評価。2025年5月 GA |
-| AWS Application Migration Service（AWS MGN） | サーバーをそのまま AWS へ移行 | リホスト（リフト&シフト）、継続的なレプリケーション、短いダウンタイム |
+| AWS Application Migration Service（AWS MGN。2026年6月に AWS Transform MGN へ名称変更） | サーバーをそのまま AWS へ移行 | リホスト（リフト&シフト）、継続的なレプリケーション、短いダウンタイム |
 | AWS Database Migration Service（AWS DMS） | データベースを稼働させたまま移行 | 同種・異種のエンジン間の移行、継続的なレプリケーション |
 | AWS Schema Conversion Tool（AWS SCT）/ DMS Schema Conversion | 異なる DB エンジン間でスキーマを変換 | Oracle → PostgreSQL などの異種移行 |
 | AWS DataSync | ネットワーク経由（オンライン）での大容量データ転送 | NFS / SMB のファイルサーバーから S3、EFS、FSx へ。スケジュール実行、暗号化 |

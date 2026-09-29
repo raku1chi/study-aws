@@ -139,6 +139,9 @@ AWS は大規模な移行を、次の 3 つのフェーズで進めることを�
 
 **AWS Application Migration Service（MGN）** は、リホストのための主要なサービスです。ソースサーバーのディスクを AWS へ**継続的にブロックレベルでレプリケーション**し、準備ができたら EC2 インスタンスとして起動します。OS やアプリケーションの種類を問わずに移せるのは、ファイルや DB ではなく、ディスクのブロックをそのまま複製しているためです。
 
+> [!NOTE]
+> **名称変更**: AWS Application Migration Service は 2026年6月に **AWS Transform MGN** へ名称変更されました。機能・API・レプリケーションの仕組みは変わっていません（[発表](https://aws.amazon.com/about-aws/whats-new/2026/06/aws-transform-mgn-rebrand/)）。試験や多くの教材では旧名称で出題されるため、本章では旧名称で説明します。
+
 ```mermaid
 flowchart LR
     subgraph SRC["ソース環境（オンプレミス / 他クラウド）"]

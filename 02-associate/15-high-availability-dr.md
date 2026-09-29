@@ -479,7 +479,7 @@ flowchart LR
 |---|---|---|---|
 | AWS Backup | バックアップの一元管理と長期保持 | 定期的な（一部は継続的な）バックアップ | RPO はバックアップ間隔（時間単位など）、RTO は復元にかかる時間（時間単位など） |
 | AWS Elastic Disaster Recovery | サーバーの DR | 継続的なブロックレベルレプリケーションと低コストのステージングエリア | RPO は秒単位、RTO は分単位 |
-| AWS Application Migration Service（MGN） | サーバーの移行（一度きりのカットオーバー） | DRS と同様の継続的レプリケーション | 移行時の停止時間を分単位に抑える |
+| AWS Application Migration Service（MGN。現 AWS Transform MGN） | サーバーの移行（一度きりのカットオーバー） | DRS と同様の継続的レプリケーション | 移行時の停止時間を分単位に抑える |
 | マネージド DB のクロスリージョン機能 | データベースの DR | Aurora Global Database、DynamoDB グローバルテーブルなど | RPO は秒単位〜ゼロ |
 
 > [!TIP]
